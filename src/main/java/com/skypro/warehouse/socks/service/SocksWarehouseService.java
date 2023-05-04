@@ -5,7 +5,7 @@ import com.skypro.warehouse.socks.dto.SocksDto;
 public interface SocksWarehouseService {
     void incomeSocks(SocksDto socksDto);
 
-    void outcomeSocks();
+    void outcomeSocks(SocksDto socksDto);
 
-    int getSocks();
+    int getSocks(String color, String operation, Integer cottonPart);
 }

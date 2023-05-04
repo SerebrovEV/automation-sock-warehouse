@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class SocksDto {
-    private String name;
+    private String color;
     private int cottonPart;
     private int quantity;
 }

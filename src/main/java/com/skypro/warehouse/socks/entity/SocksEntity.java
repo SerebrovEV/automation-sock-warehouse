@@ -3,6 +3,11 @@ package com.skypro.warehouse.socks.entity;
 
 import lombok.*;
 
+import javax.persistence.*;
+
+
+@Entity
+@Table(name = "socks")
 @Getter
 @Setter
 @EqualsAndHashCode(exclude = "id")
@@ -10,8 +15,11 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 public class SocksEntity {
-    private int id;
-    private String name;
-    private int cottonPart;
-    private int quantity;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    private String color;
+    private Integer cottonPart;
+    private Integer quantity;
 }

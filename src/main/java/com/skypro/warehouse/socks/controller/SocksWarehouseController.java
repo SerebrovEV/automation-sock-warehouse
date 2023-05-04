@@ -20,6 +20,7 @@ public class SocksWarehouseController {
 
     @PostMapping("/outcome")
     public ResponseEntity outcomeSocks(@RequestBody SocksDto socksDto) {
+        socksWarehouseService.outcomeSocks(socksDto);
         return ResponseEntity.ok().build();
     }
 
@@ -27,7 +28,7 @@ public class SocksWarehouseController {
     public ResponseEntity<Integer> getSocks(@RequestParam String color,
                                             @RequestParam String operation,
                                             @RequestParam int cottonPart) {
-        return null;
+        return ResponseEntity.ok(socksWarehouseService.getSocks(color, operation, cottonPart));
     }
 
 
