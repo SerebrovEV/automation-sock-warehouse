@@ -8,7 +8,7 @@ import com.skypro.warehouse.socks.mapper.SocksMapper;
 import com.skypro.warehouse.socks.model.Operation;
 import com.skypro.warehouse.socks.repository.SocksWarehouseRepository;
 import com.skypro.warehouse.socks.service.SocksWarehouseService;
-import com.skypro.warehouse.socks.service.ValidatorRequest;
+import com.skypro.warehouse.socks.service.ValidatorSocksRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j;
 import org.springframework.stereotype.Service;
@@ -16,18 +16,24 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 
-
+/**
+ * Имплементация интерфейса {@link SocksWarehouseService}
+ */
 @Service
 @RequiredArgsConstructor
 @Log4j
 public class SocksWarehouseServiceImpl implements SocksWarehouseService {
     private final SocksWarehouseRepository socksWarehouseRepository;
     private final SocksMapper socksMapper;
-    private final ValidatorRequest validatorRequest;
+    private final ValidatorSocksRequest validatorSocksRequest;
 
+    /**
+     * Метод для добавления пар носков {@link SocksEntity} в базу данных
+     * @param socksDto
+     */
     @Override
     public void incomeSocks(SocksDto socksDto) {
-        validatorRequest.validateSocksRequest(socksDto);
+        validatorSocksRequest.validateSocksRequest(socksDto);
         Optional<SocksEntity> findSocks = findSocks(socksDto.getColor(), socksDto.getCottonPart());
         if (findSocks.isEmpty()) {
             log.info("Added new pair of socks to the warehouse");
@@ -40,9 +46,13 @@ public class SocksWarehouseServiceImpl implements SocksWarehouseService {
         }
     }
 
+    /**
+     * Метод для уменьшения количества пар носков {@link SocksEntity} в базе данных
+     * @param socksDto
+     */
     @Override
     public void outcomeSocks(SocksDto socksDto) {
-        validatorRequest.validateSocksRequest(socksDto);
+        validatorSocksRequest.validateSocksRequest(socksDto);
         Optional<SocksEntity> findSocks = findSocks(socksDto.getColor(), socksDto.getCottonPart());
         if (findSocks.isPresent()) {
             log.info("Decrement quantity socks on the warehouse");
@@ -55,9 +65,16 @@ public class SocksWarehouseServiceImpl implements SocksWarehouseService {
         }
     }
 
+    /**
+     * Метод для получения количества пар носков {@link SocksEntity} в базе данных по параметрам
+     * @param color цвет;
+     * @param operation операция сравнения;
+     * @param cottonPart процент хлопка в составе;
+     * @return {@link Integer} суммарное количество пар носков
+     */
     @Override
     public int getSocks(String color, Operation operation, Integer cottonPart) {
-        validatorRequest.validateSocksRequest(color, cottonPart);
+        validatorSocksRequest.validateSocksRequest(color, cottonPart);
         log.info("Request about quantity pair of socks");
         switch (operation) {
             case lessThan:
@@ -72,6 +89,12 @@ public class SocksWarehouseServiceImpl implements SocksWarehouseService {
 
     }
 
+    /**
+     * Метод для поиска {@link Optional} <{@link SocksEntity}> в базе данных по параметрам
+     * @param color цвет носков;
+     * @param cottonPart процент хлопка в составе;
+     * @return {@link Optional} <{@link SocksEntity}>
+     */
     private Optional<SocksEntity> findSocks(String color, Integer cottonPart) {
         log.info("Searching item pair of socks on the warehouse");
         return socksWarehouseRepository.findByColorAndAndCottonPart(color, cottonPart);

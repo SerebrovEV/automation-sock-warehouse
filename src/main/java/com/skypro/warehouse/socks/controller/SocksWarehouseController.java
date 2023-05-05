@@ -12,7 +12,9 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
+/**
+ * Контроллер для работы с HTTP-запросами по url "/socks..."
+ */
 @RestController
 @RequestMapping("/socks")
 @RequiredArgsConstructor
@@ -64,7 +66,7 @@ public class SocksWarehouseController {
     }
 
     @io.swagger.v3.oas.annotations.Operation(
-            summary = "getSocks",
+            summary = "GetSocks",
             description = "Возвращает общее количество носков на складе, соответствующих переданным в параметрах критериям запроса",
             tags = {"Socks"},
             responses = {
