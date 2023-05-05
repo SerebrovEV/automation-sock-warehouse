@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @Repository
 public interface SocksWarehouseRepository extends JpaRepository<SocksEntity, Integer> {
+
     Optional<SocksEntity> findByColorAndAndCottonPart(String color, Integer cottonPart);
 
     @Query(value = "select sum(quantity) from socks as s where s.color like :color and s.cotton_part < :cottonPart",

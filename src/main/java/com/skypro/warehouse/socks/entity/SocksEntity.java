@@ -30,6 +30,6 @@ public class SocksEntity {
     @Max(100)
     private Integer cottonPart;
 
-    @PositiveOrZero
+    @Min(1)
     private Integer quantity;
 }
