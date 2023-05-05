@@ -1,10 +1,14 @@
 package com.skypro.warehouse.socks.controller;
 
 import com.skypro.warehouse.socks.dto.SocksDto;
+import com.skypro.warehouse.socks.model.Operation;
 import com.skypro.warehouse.socks.service.SocksWarehouseService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/socks")
@@ -26,8 +30,8 @@ public class SocksWarehouseController {
 
     @GetMapping
     public ResponseEntity<Integer> getSocks(@RequestParam String color,
-                                            @RequestParam String operation,
-                                            @RequestParam int cottonPart) {
+                                            @RequestParam Operation operation,
+                                            @RequestParam Integer cottonPart) {
         return ResponseEntity.ok(socksWarehouseService.getSocks(color, operation, cottonPart));
     }
 
