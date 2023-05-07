@@ -9,7 +9,7 @@ public interface ValidatorSocksRequest {
 
     /**
      * Валидация запроса с {@link SocksDto}
-     * @param socksDto
+     * @param socksDto входящий Json на контроллер для работы с базой данных
      */
     void validateSocksRequest(SocksDto socksDto);
 

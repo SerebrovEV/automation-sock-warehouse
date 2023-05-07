@@ -60,7 +60,7 @@ public class SocksWarehouseController {
                     @ApiResponse(responseCode = "500", description = "An error occurred that is not dependent on the caller")
             })
     @PostMapping("/outcome")
-    public ResponseEntity outcomeSocks(@RequestBody SocksDto socksDto) {
+    public ResponseEntity<Void>  outcomeSocks(@RequestBody SocksDto socksDto) {
         socksWarehouseService.outcomeSocks(socksDto);
         return ResponseEntity.ok().build();
     }
@@ -75,7 +75,7 @@ public class SocksWarehouseController {
                     @ApiResponse(responseCode = "500", description = "An error occurred that is not dependent on the caller")
             })
     @GetMapping
-    public ResponseEntity<Integer> getSocks(@Parameter(
+    public ResponseEntity<String> getSocks(@Parameter(
                                                     description = "Цвет носков", example = "Red")
                                             @RequestParam String color,
                                             @Parameter(

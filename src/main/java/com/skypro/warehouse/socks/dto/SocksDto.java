@@ -8,6 +8,8 @@ import lombok.*;
 @Getter
 @Setter
 @EqualsAndHashCode
+@Builder
+@ToString
 public class SocksDto {
 
     private String color;

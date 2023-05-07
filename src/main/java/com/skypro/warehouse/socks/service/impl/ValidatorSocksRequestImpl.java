@@ -16,11 +16,11 @@ public class ValidatorSocksRequestImpl implements ValidatorSocksRequest {
 
     /**
      * Валидация запроса с {@link SocksDto}
-     * @param socksDto
+     * @param socksDto входящий Json на контроллер для работы с базой данных
      */
     @Override
     public void validateSocksRequest(SocksDto socksDto) {
-        if (socksDto.getColor().isEmpty()
+        if (socksDto.getColor() == null
                 || socksDto.getCottonPart() < 0
                 || socksDto.getCottonPart() > 100
                 || socksDto.getQuantity() < 0) {

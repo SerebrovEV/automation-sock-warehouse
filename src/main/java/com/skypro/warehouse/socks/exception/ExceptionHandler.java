@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ExceptionHandler {
 
     @org.springframework.web.bind.annotation.ExceptionHandler(BadRequestException.class)
-    public ResponseEntity<String> handleBadRequestException(BadRequestException e) {
+    public ResponseEntity<String> handleBadRequestException() {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body("Параметры запроса отсутствуют или имеют некорректный формат");
     }
