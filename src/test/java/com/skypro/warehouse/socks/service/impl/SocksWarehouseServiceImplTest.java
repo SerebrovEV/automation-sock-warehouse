@@ -2,7 +2,6 @@ package com.skypro.warehouse.socks.service.impl;
 
 import com.skypro.warehouse.socks.dto.SocksDto;
 import com.skypro.warehouse.socks.entity.SocksEntity;
-import com.skypro.warehouse.socks.exception.BadRequestException;
 import com.skypro.warehouse.socks.exception.SocksNotFoundException;
 import com.skypro.warehouse.socks.mapper.SocksMapper;
 import com.skypro.warehouse.socks.model.Operation;

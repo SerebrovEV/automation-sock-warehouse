@@ -75,7 +75,7 @@ public class SocksWarehouseServiceImpl implements SocksWarehouseService {
      * @param color      цвет;
      * @param operation  операция сравнения;
      * @param cottonPart процент хлопка в составе;
-     * @return {@link Integer} суммарное количество пар носков
+     * @return {@link String} суммарное количество пар носков
      */
     @Override
     public String getSocks(String color, Operation operation, Integer cottonPart) {
