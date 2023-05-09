@@ -1,13 +1,13 @@
-package com.skypro.automationsockwarehouse;
+package com.skypro.warehouse.socks;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AutomationSockWarehouseApplication {
+public class SockWarehouseApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AutomationSockWarehouseApplication.class, args);
+		SpringApplication.run(SockWarehouseApplication.class, args);
 	}
 
 }

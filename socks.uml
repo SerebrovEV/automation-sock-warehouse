@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>7e3a61bb-a4ad-4283-9925-f88316b409ad.TABLE:socks-warehouse.public.socks</OriginalElement>
+  <nodes>
+    <node x="0.0" y="0.0">7e3a61bb-a4ad-4283-9925-f88316b409ad.TABLE:socks-warehouse.public.socks</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.4000000000000004" x="69.0" y="70.00000000000003" />
+  <SelectedNodes>
+    <node>7e3a61bb-a4ad-4283-9925-f88316b409ad.TABLE:socks-warehouse.public.socks</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
