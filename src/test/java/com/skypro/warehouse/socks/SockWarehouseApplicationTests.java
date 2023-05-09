@@ -1,10 +1,10 @@
-package com.skypro.automationsockwarehouse;
+package com.skypro.warehouse.socks;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AutomationSockWarehouseApplicationTests {
+class SockWarehouseApplicationTests {
 
 	@Test
 	void contextLoads() {
